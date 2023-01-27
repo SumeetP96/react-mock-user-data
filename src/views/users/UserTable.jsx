@@ -89,11 +89,30 @@ export default function UserTable({
           <tbody>
             {loading ? (
               <tr>
-                <td
-                  colSpan="100%"
-                  className="text-center text-primary fw-bold py-4"
-                >
-                  Loading data, please wait ...
+                <td colSpan="2" className="text-center">
+                  <p className="placeholder-glow">
+                    <span className="placeholder col-12"></span>
+                  </p>
+                </td>
+                <td className="text-center">
+                  <p className="placeholder-glow">
+                    <span className="placeholder col-12"></span>
+                  </p>
+                </td>
+                <td className="text-center">
+                  <p className="placeholder-glow">
+                    <span className="placeholder col-12"></span>
+                  </p>
+                </td>
+                <td className="text-center">
+                  <p className="placeholder-glow">
+                    <span className="placeholder col-12"></span>
+                  </p>
+                </td>
+                <td className="text-center">
+                  <p className="placeholder-glow">
+                    <span className="placeholder col-12"></span>
+                  </p>
                 </td>
               </tr>
             ) : (

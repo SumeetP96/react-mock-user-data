@@ -1,17 +1,22 @@
-import TopBar from "./components/TopBar";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./views/Home";
-import Users from "./views/Users";
+import TopBar from "./components/TopBar";
+import "./App.css";
+
+const Home = lazy(() => import("./views/home"));
+const Users = lazy(() => import("./views/users"));
 
 function App() {
   return (
     <div className="App">
       <TopBar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/users" element={<Users />} />
-      </Routes>
+      <Suspense fallback={<div className="loading" />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/users" element={<Users />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
