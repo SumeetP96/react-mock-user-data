@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
-import TableLoadingRow from "../../components/TableLoadingRow";
-import useTablePagination from "../../hooks/use-table-pagination";
-import TablePagination from "../../components/TablePagination";
+import TableLoadingRow from "../../../components/TableLoadingRow";
+import useTablePagination from "../../../hooks/use-table-pagination";
+import TablePagination from "../../../components/TablePagination";
+import { useSelector } from "react-redux";
 
-export default function UserTable({
-  users,
-  filters,
-  loading,
-  typeColors,
-  ...props
-}) {
-  const pagination = useTablePagination({ dependency: filters });
+export default function UserTable({ ...props }) {
+  const { list, filters, typeColors, loading } = useSelector(
+    (state) => state.users
+  );
+
+  const pagination = useTablePagination({
+    dependency: filters,
+    defaultCurrentPage: 1,
+    defaultPerPage: 10,
+  });
+
   const [filteredUsers, setFilteredUsers] = useState([]);
 
   const {
@@ -26,10 +30,11 @@ export default function UserTable({
   useEffect(() => {
     const filterUsers = () => {
       let userRecords = [];
+
       if (filters.all === true) {
-        userRecords = users;
+        userRecords = list;
       } else {
-        userRecords = users.filter(({ type }) => filters[type.toString()]);
+        userRecords = list.filter(({ type }) => filters[type.toString()]);
       }
 
       const startIndex = currentPage === 1 ? 0 : (currentPage - 1) * perPage;
@@ -49,7 +54,7 @@ export default function UserTable({
       setFilteredUsers([]);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters, users, currentPage, perPage, totalPages]);
+  }, [filters, list, currentPage, perPage, totalPages]);
 
   return (
     <>

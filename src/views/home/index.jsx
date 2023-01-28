@@ -11,17 +11,18 @@ export default function Home() {
           endpoint.
         </p>
         <div>
+          View the source code on &nbsp;
           <a
             href="https://github.com/sumeetprajapati1996/react-mock-user-data"
             target="_blank"
             rel="noreferrer"
           >
-            Source Code
+            GitHub
           </a>
         </div>
 
         <Link className="btn btn-success mt-5" to="users">
-          Goto Users List
+          Show me the List
         </Link>
       </div>
     </div>
