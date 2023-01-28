@@ -2,9 +2,9 @@
   display: inline-block;
   width: 30px;
   height: 30px;
-  border: 2px solid darkblue;
+  border: 2px solid darkslateblue;
   border-radius: 50%;
-  border-top-color: darkblue;
+  border-top-color: darkslateblue;
   animation: spin 1s ease-in-out infinite;
   -webkit-animation: spin 1s ease-in-out infinite;
   left: calc(50% - 15px);
