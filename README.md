@@ -1,4 +1,40 @@
-# Getting Started with Create React App
+# React Mock User Data
+
+This is a simple React application, which implements a flow of fetching data, from a mock server, and display it to the user.
+
+## Libraries Used
+
+- Axios
+- Bootstrap
+- React Router
+- Redux Tookit
+
+## Mock Server
+
+This project uses [Mocky](https://designer.mocky.io/) for serving mock data.
+
+API endpoint [http://www.mocky.io/v2/5d889c8a3300002c0ed7da42](http://www.mocky.io/v2/5d889c8a3300002c0ed7da42)
+
+Sample response:
+
+```json
+{
+  "items": [
+    {
+    "index": 1,
+    "type": 1,
+    "wallet1": 27893,
+    "wallet2": 14900,
+    "wallet3": 14545,
+    "fullName": "Gene Olsen",
+    "email": "barry@hawkins.bg"
+    },
+    ...
+  ],
+}
+```
+
+# How to use this Project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
