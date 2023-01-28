@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
-
-const PAGE_OPTIONS = [10, 20, 50];
+import TableLoadingRow from "../../components/TableLoadingRow";
+import useTablePagination from "../../hooks/use-table-pagination";
+import TablePagination from "../../components/TablePagination";
 
 export default function UserTable({
   users,
   filters,
   loading,
-  colors,
+  typeColors,
   ...props
 }) {
+  const pagination = useTablePagination({ dependency: filters });
   const [filteredUsers, setFilteredUsers] = useState([]);
-  const [perPage, setPerPage] = useState(10);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [filters]);
+  const {
+    perPage,
+    currentPage,
+    totalPages,
+    setTotalPages,
+    handlePrevious,
+    handleNext,
+    handlePerPageChange,
+  } = pagination;
 
   useEffect(() => {
     const filterUsers = () => {
@@ -43,25 +48,8 @@ export default function UserTable({
     return () => {
       setFilteredUsers([]);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters, users, currentPage, perPage, totalPages]);
-
-  const handlePrevious = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentPage + 1 <= totalPages) {
-      setCurrentPage((prev) => prev + 1);
-    }
-  };
-
-  const handlePerPageChange = (e) => {
-    setPerPage(Number(e.target.value));
-    setCurrentPage(1);
-    setTotalPages(0);
-  };
 
   return (
     <>
@@ -88,33 +76,7 @@ export default function UserTable({
 
           <tbody>
             {loading ? (
-              <tr>
-                <td colSpan="2" className="text-center">
-                  <p className="placeholder-glow">
-                    <span className="placeholder col-12"></span>
-                  </p>
-                </td>
-                <td className="text-center">
-                  <p className="placeholder-glow">
-                    <span className="placeholder col-12"></span>
-                  </p>
-                </td>
-                <td className="text-center">
-                  <p className="placeholder-glow">
-                    <span className="placeholder col-12"></span>
-                  </p>
-                </td>
-                <td className="text-center">
-                  <p className="placeholder-glow">
-                    <span className="placeholder col-12"></span>
-                  </p>
-                </td>
-                <td className="text-center">
-                  <p className="placeholder-glow">
-                    <span className="placeholder col-12"></span>
-                  </p>
-                </td>
-              </tr>
+              <TableLoadingRow rows={5} cols={6} />
             ) : (
               <>
                 {filteredUsers.length ? (
@@ -124,7 +86,7 @@ export default function UserTable({
                         className={`text-center fw-bold ${
                           user.type > 2 ? "text-white" : ""
                         }`}
-                        style={{ backgroundColor: colors[user.type] }}
+                        style={{ backgroundColor: typeColors[user.type] }}
                       >
                         {currentPage === 1
                           ? index + 1
@@ -150,47 +112,15 @@ export default function UserTable({
         </table>
       </div>
 
-      <div className="mt-4 d-flex justify-content-between align-items-center">
-        <div className="d-inline-flex align-items-center">
-          <div className="me-2 d-none d-md-inline-block">Per Page</div>
-          <select
-            className="form-select form-select-sm ml-2"
-            style={{ width: "80px" }}
-            defaultValue={perPage}
-            onChange={handlePerPageChange}
-          >
-            {PAGE_OPTIONS.map((opt) => (
-              <option value={opt} key={opt}>
-                {opt}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {totalPages ? (
-          <div>
-            Page {currentPage} of {totalPages}
-          </div>
-        ) : null}
-
-        <div className="btn-group">
-          <button
-            className="btn btn-sm btn-primary"
-            onClick={handlePrevious}
-            disabled={currentPage === 1}
-          >
-            Prev
-          </button>
-
-          <button
-            className="btn btn-sm btn-primary"
-            onClick={handleNext}
-            disabled={currentPage + 1 > totalPages}
-          >
-            Next
-          </button>
-        </div>
-      </div>
+      <TablePagination
+        className="mt-2 mt-md-4"
+        perPage={perPage}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        handleNext={handleNext}
+        handlePrevious={handlePrevious}
+        handlePerPageChange={handlePerPageChange}
+      />
     </>
   );
 }

@@ -184,7 +184,7 @@ export default function Users() {
                 loading={loading}
                 users={users}
                 filters={filters}
-                colors={TYPE_COLORS}
+                typeColors={TYPE_COLORS}
               />
             </>
           )}
