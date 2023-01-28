@@ -21,16 +21,15 @@ Sample response:
 {
   "items": [
     {
-    "index": 1,
-    "type": 1,
-    "wallet1": 27893,
-    "wallet2": 14900,
-    "wallet3": 14545,
-    "fullName": "Gene Olsen",
-    "email": "barry@hawkins.bg"
-    },
-    ...
-  ],
+      "index": 1,
+      "type": 1,
+      "wallet1": 27893,
+      "wallet2": 14900,
+      "wallet3": 14545,
+      "fullName": "Gene Olsen",
+      "email": "barry@hawkins.bg"
+    }
+  ]
 }
 ```
 
