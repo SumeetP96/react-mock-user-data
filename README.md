@@ -4,10 +4,12 @@ This is a simple React application, which implements a flow of fetching data, fr
 
 ## Libraries Used
 
-- Axios
-- Bootstrap
-- React Router
-- Redux Tookit
+- React (v18.2.0)
+- Axios (v1.2.5)
+- Bootstrap (v5.2.3)
+- React Router (v6.8.0)
+- Redux (v8.0.5)
+- Redux Tookit (v1.9.1)
 
 ## Mock Server
 
