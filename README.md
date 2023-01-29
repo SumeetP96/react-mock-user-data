@@ -2,32 +2,6 @@
 
 This is a simple React application, which implements a flow of fetching data, from a mock server, and display it to the user.
 
-## Screenshots
-
-<style>
-  #screenshots {
-    display: flex
-  }
-</style>
-
-<div id="screenshots">
-  <a href="https://i.imgur.com/YpQDEAb.png" target="_blank">
-    <img src="https://i.imgur.com/YpQDEAb.png" alt="home-page" width="90%"/>
-  </a>
-
-  <a href="https://i.imgur.com/P9CIWQo.png" target="_blank">
-    <img src="https://i.imgur.com/P9CIWQo.png" alt="users-list" width="90%"/>
-  </a>
-
-  <a href="https://i.imgur.com/TZuqI7g.png" target="_blank">
-    <img src="https://i.imgur.com/TZuqI7g.png" alt="users-list-responsive" width="85%"/>
-  </a>
-  
-  <a href="https://imgur.com/aLIg0OH.png" target="_blank">
-    <img src="https://imgur.com/aLIg0OH.png" alt="users-loading" width="90%"/>
-  </a>
-</div>
-
 <br />
 
 ## Libraries Used
@@ -64,6 +38,28 @@ Sample response:
   ]
 }
 ```
+
+## Screenshots
+
+<div>
+  <a href="https://i.imgur.com/YpQDEAb.png" target="_blank">
+    <img src="https://i.imgur.com/YpQDEAb.png" alt="home-page" width="60%"/>
+  </a>
+
+  <a href="https://imgur.com/aLIg0OH.png" target="_blank">
+    <img src="https://imgur.com/aLIg0OH.png" alt="users-loading" width="60%"/>
+  </a>
+
+  <a href="https://i.imgur.com/P9CIWQo.png" target="_blank">
+    <img src="https://i.imgur.com/P9CIWQo.png" alt="users-list" width="60%"/>
+  </a>
+
+  <a href="https://i.imgur.com/TZuqI7g.png" target="_blank">
+    <img src="https://i.imgur.com/TZuqI7g.png" alt="users-list-responsive" width="60%"/>
+  </a>
+</div>
+
+<br />
 
 # How to use this Project
 
