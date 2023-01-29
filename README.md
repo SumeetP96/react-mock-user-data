@@ -2,6 +2,28 @@
 
 This is a simple React application, which implements a flow of fetching data, from a mock server, and display it to the user.
 
+## Screenshots
+
+<div style="display: flex">
+  <a href="https://i.imgur.com/YpQDEAb.png" target="_blank">
+    <img src="https://i.imgur.com/YpQDEAb.png" alt="home-page" width="90%"/>
+  </a>
+
+  <a href="https://i.imgur.com/P9CIWQo.png" target="_blank">
+    <img src="https://i.imgur.com/P9CIWQo.png" alt="users-list" width="90%"/>
+  </a>
+
+  <a href="https://i.imgur.com/TZuqI7g.png" target="_blank">
+    <img src="https://i.imgur.com/TZuqI7g.png" alt="users-list-responsive" width="85%"/>
+  </a>
+  
+  <a href="https://imgur.com/aLIg0OH.png" target="_blank">
+    <img src="https://imgur.com/aLIg0OH.png" alt="users-loading" width="90%"/>
+  </a>
+</div>
+
+<br />
+
 ## Libraries Used
 
 - React `(v18.2.0)`
@@ -10,6 +32,8 @@ This is a simple React application, which implements a flow of fetching data, fr
 - React Router `(v6.8.0)`
 - Redux `(v8.0.5)`
 - Redux Tookit `(v1.9.1)`
+
+<br />
 
 ## Mock Server
 
