@@ -1,22 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { PAGE_OPTIONS } from "../utils/pagination";
 
-const DEFAULT_PER_PAGE = 10;
-const DEFAULT_CURRENT_PAGE = 1;
+const PER_PAGE = 10;
 
-export default function useTablePagination({
-  dependency = null,
-  defaultPerPage = null,
-  defaultCurrentPage = null,
-}) {
-  const [perPage, setPerPage] = useState(defaultPerPage ?? DEFAULT_PER_PAGE);
-  const [currentPage, setCurrentPage] = useState(
-    defaultCurrentPage ?? DEFAULT_CURRENT_PAGE
+export default function useTablePagination({ defaultPerPage = null }) {
+  const [perPage, setPerPage] = useState(
+    defaultPerPage && PAGE_OPTIONS.includes(defaultPerPage)
+      ? defaultPerPage
+      : PER_PAGE
   );
+  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [dependency]);
 
   const handlePrevious = () => {
     if (currentPage > 1) {
@@ -36,14 +30,31 @@ export default function useTablePagination({
     setTotalPages(0);
   };
 
+  const getPaginatedRecords = (records = []) => {
+    if (!records.length) {
+      return [];
+    }
+
+    const startIndex = currentPage === 1 ? 0 : (currentPage - 1) * perPage;
+    const remaining =
+      currentPage === totalPages
+        ? records.length - (totalPages - 1) * perPage
+        : perPage;
+    const endIndex = startIndex + remaining;
+
+    setTotalPages(Math.ceil(records.length / perPage));
+
+    return records.slice(startIndex, endIndex);
+  };
+
   return {
     perPage,
     currentPage,
     setCurrentPage,
     totalPages,
-    setTotalPages,
     handlePrevious,
     handleNext,
     handlePerPageChange,
+    getPaginatedRecords,
   };
 }

@@ -1,6 +1,5 @@
 import React from "react";
-
-const PAGE_OPTIONS = [10, 20, 50];
+import { PAGE_OPTIONS } from "../utils/pagination";
 
 export default function TablePagination({
   perPage,

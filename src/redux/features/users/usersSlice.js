@@ -55,8 +55,6 @@ export const usersSlice = createSlice({
         }
       }
     },
-
-    filterUsers: (state, action) => {},
   },
 });
 
@@ -65,7 +63,6 @@ export const {
   updateUserFilters,
   updateUserList,
   updateUserLoading,
-  filterUsers,
 } = usersSlice.actions;
 
 export default usersSlice.reducer;

@@ -9,43 +9,32 @@ export default function UserTable({ ...props }) {
     (state) => state.users
   );
 
-  const pagination = useTablePagination({
-    dependency: filters,
-    defaultCurrentPage: 1,
-    defaultPerPage: 10,
-  });
-
   const [filteredUsers, setFilteredUsers] = useState([]);
-
   const {
     perPage,
     currentPage,
+    setCurrentPage,
     totalPages,
-    setTotalPages,
     handlePrevious,
     handleNext,
     handlePerPageChange,
-  } = pagination;
+    getPaginatedRecords,
+  } = useTablePagination({ defaultPerPage: 10 });
+
+  useEffect(() => {
+    setCurrentPage(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters]);
 
   useEffect(() => {
     const filterUsers = () => {
       let userRecords = [];
-
       if (filters.all === true) {
         userRecords = list;
       } else {
         userRecords = list.filter(({ type }) => filters[type.toString()]);
       }
-
-      const startIndex = currentPage === 1 ? 0 : (currentPage - 1) * perPage;
-      const remainder =
-        currentPage === totalPages
-          ? userRecords.length - (totalPages - 1) * perPage
-          : perPage;
-      const endIndex = startIndex + remainder;
-
-      setTotalPages(Math.ceil(userRecords.length / perPage));
-      setFilteredUsers(userRecords.slice(startIndex, endIndex));
+      setFilteredUsers(getPaginatedRecords(userRecords));
     };
 
     filterUsers();
@@ -58,7 +47,7 @@ export default function UserTable({ ...props }) {
 
   return (
     <>
-      <div className={`${props?.className} table-responsive-lg`}>
+      <div className={`${props?.className} table-responsive-lg`} {...props}>
         <table className="mt-4 table table-bordered">
           <thead className="table-light">
             <tr>

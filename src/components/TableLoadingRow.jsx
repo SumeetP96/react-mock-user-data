@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TableLoadingRow({ rows, cols, ...props }) {
+export default function TableLoadingRow({ rows = 1, cols = 1, ...props }) {
   return (
     <>
       {Array.from({ length: rows }, (v, i) => i).map((num) => (
