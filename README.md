@@ -4,7 +4,13 @@ This is a simple React application, which implements a flow of fetching data, fr
 
 ## Screenshots
 
-<div style="display: flex">
+<style>
+  #screenshots {
+    display: flex
+  }
+</style>
+
+<div id="screenshots">
   <a href="https://i.imgur.com/YpQDEAb.png" target="_blank">
     <img src="https://i.imgur.com/YpQDEAb.png" alt="home-page" width="90%"/>
   </a>
