@@ -39,6 +39,8 @@ Sample response:
 }
 ```
 
+<br />
+
 ## Screenshots
 
 <div>
