@@ -27,6 +27,7 @@ export default function Users() {
           dispatch(updateUserError("Error fetching data from api!"));
         }
       } catch (e) {
+        console.log(e.message);
         dispatch(updateUserError("Error fetching data from api!"));
       }
       dispatch(updateUserLoading(false));
