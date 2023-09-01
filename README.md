@@ -19,7 +19,7 @@ This is a simple React application, which implements a flow of fetching data, fr
 
 This project uses [Mocky](https://designer.mocky.io/) for serving mock data.
 
-API endpoint [http://www.mocky.io/v2/5d889c8a3300002c0ed7da42](http://www.mocky.io/v2/5d889c8a3300002c0ed7da42)
+API endpoint [https://www.mocky.io/v2/5d889c8a3300002c0ed7da42](https://www.mocky.io/v2/5d889c8a3300002c0ed7da42)
 
 Sample response:
 
