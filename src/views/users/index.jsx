@@ -19,7 +19,7 @@ export default function Users() {
       dispatch(updateUserLoading(true));
       try {
         const response = await axios.get(
-          "http://www.mocky.io/v2/5d889c8a3300002c0ed7da42"
+          "https://www.mocky.io/v2/5d889c8a3300002c0ed7da42"
         );
         if (response?.status === 200) {
           dispatch(updateUserList(response.data.items));
